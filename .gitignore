@@ -1,0 +1,14 @@
+# --------------------
+# Linux Files
+# --------------------
+*.swo
+*.swp
+*.module-cache
+*.DS_Store
+
+# --------------------
+# Node Files
+# --------------------
+node_modules/*
+npm-debug.log
+package-lock.json
