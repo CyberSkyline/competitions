@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Grid } from 'semantic-ui-react'
-import { Link, BrowserRouter } from 'react-router-dom'
+
+const moment = require('moment');
 
 function Modalpopup(props) {
   const [open, setOpen] = React.useState(false)
@@ -19,7 +20,7 @@ function Modalpopup(props) {
               <h1>{props.header}</h1>
             </Grid.Row>
             <Grid.Row>
-              <h3>Deadline</h3>
+              <h3> {moment(props.ctfStartDate).format('MMMM D')} - {moment(props.ctfEndDate).format('MMMM D, YYYY')}</h3>
             </Grid.Row>
           </Grid.Column>
           <Grid.Column textAlign='right'>
@@ -28,20 +29,19 @@ function Modalpopup(props) {
         </Grid>
       </Modal.Header>
       <Modal.Content image>
-        <Image size='medium' src={props.logoURL} wrapped />
-        <Modal.Description>
+        <Image size='medium' src={props.logoURL} />
+        <Modal.Description style={{'flex': '1'}}>
           <Header></Header>
-          <p> {props.longDescription} </p>
+           {props.longDescription}
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <BrowserRouter>
-          <Link to={{ pathname: "https://google.com" }} target="_blank">
-           <Button color='red'>
+          <Button as='a' color='blue' href={props.contactInfo} target='_blank'>
+             Contact
+           </Button>
+           <Button as='a' color='red' href={props.regURL} target='_blank'>
              Registration
            </Button>
-          </Link>
-        </BrowserRouter>
       </Modal.Actions>
     </Modal>
   )
