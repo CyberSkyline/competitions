@@ -22,7 +22,7 @@ ReactDOM.render(
     <div style={{ maxWidth: 1425, margin: 'auto', padding: '2em' }}>
       <DismissibleMessage />
 
-      <Divider horizontal section style={{ 'margin-top': '1em' }}>
+      <Divider horizontal section style={{ padding: '1em' }}>
         <Header size='large'>
           Current Events
         </Header>
@@ -35,7 +35,7 @@ ReactDOM.render(
           .value()}
       </Card.Group>
 
-      <Divider horizontal section style={{ 'margin-top': '4em' }}>
+      <Divider horizontal section style={{ padding: '1em' }}>
         <Header size='large'>
           Past Events
         </Header>
