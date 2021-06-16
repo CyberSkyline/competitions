@@ -2,68 +2,72 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
-import {
-  Card, Segment, Grid, Image, Divider, Container, Header,
-} from 'semantic-ui-react';
-import ctfCards from './ctfCards';
+import moment from 'moment';
+import { Card, Segment, Grid, Divider, Header, Image, List } from 'semantic-ui-react';
+import competitions from './competitionData';
 import './themes/style.css';
 import DismissibleMessage from './DismissibleMessage';
 import CustomCard from './CustomCard';
+import * as constants from './constants';
 
 ReactDOM.render(
   <React.StrictMode>
     <Segment textAlign='center'>
-      <Image avatar size='mini' src='https://pbs.twimg.com/profile_images/2189766987/ctftime-logo-avatar_400x400.png' />
-      <span> CTF Info</span>
+      <Header size='huge'>
+        <i className='fas fa-laptop-code' style={{ 'margin-right': '.5em' }} />
+        Cyber Competitions Info
+      </Header>
     </Segment>
-    <Divider hidden />
 
-    <DismissibleMessage />
+    <div style={{ maxWidth: 1425, margin: 'auto', padding: '2em' }}>
+      <DismissibleMessage />
 
-    <Divider horizontal style={{ 'margin-left': '10em', 'margin-right': '10em' }} section>
-      <Header as='h1'>
-        Current Events
-      </Header>
-    </Divider>
+      <Divider horizontal section style={{ 'margin-top': '1em' }}>
+        <Header size='large'>
+          Current Events
+        </Header>
+      </Divider>
 
-    <Card.Group stackable itemsPerRow={4} doubling centered padded='vertically' style={{ 'margin-left': '10em', 'margin-right': '10em' }}>
-      {_.chain(ctfCards).filter((element) => (element.endDate > new Date() || element.endDate == null)).map((element) => (
-        <CustomCard key={element.header} {...element} />
-      )).value()}
-    </Card.Group>
+      <Card.Group stackable itemsPerRow={4} doubling centered padded='vertically'>
+        {_.chain(competitions).sortBy('startDate').filter((element) => (element.endDate > new Date() || element.endDate === null)).map((element) => (
+          <CustomCard key={element.header} {...element} />
+        ))
+          .value()}
+      </Card.Group>
 
-    <Divider horizontal style={{ 'margin-left': '10em', 'margin-right': '10em' }} section>
-      <Header as='h1'>
-        Past Events
-      </Header>
-    </Divider>
+      <Divider horizontal section style={{ 'margin-top': '4em' }}>
+        <Header size='large'>
+          Past Events
+        </Header>
+      </Divider>
 
-    <Card.Group stackable itemsPerRow={4} doubling centered padded='vertically' style={{ 'margin-left': '10em', 'margin-right': '10em' }}>
-      {_.chain(ctfCards).filter((element) => (element.endDate != null && element.endDate <= new Date())).map((element) => (
-        <CustomCard key={element.header} {...element} />
-      )).value()}
-    </Card.Group>
+      <Card.Group stackable itemsPerRow={4} doubling centered padded='vertically'>
+        {_.chain(competitions).orderBy((competition) => moment(competition.startDate), 'desc').filter((element) => (element.endDate !== null && element.endDate <= new Date())).map((element) => (
+          <CustomCard key={element.header} {...element} />
+        ))
+          .value()}
+      </Card.Group>
+    </div>
 
-    <Segment className='Footer' textAlign='right'>
-      <Container>
-        <Grid columns={3}>
-          <Grid.Column />
-          <Grid.Column />
-          <Grid.Column>
-            <Grid columns={3} style={{ 'white-space': 'nowrap' }}>
-              <Grid.Column>
-                <a href='https://github.com/CyberSkyline/competitions/blob/production/src/ctfCards.js' target='_blank' rel='noreferrer'>Want to add your CTF</a>
-              </Grid.Column>
-              <Grid.Column>
-                Cyber Skyline © 2021
-              </Grid.Column>
-              <Grid.Column>
-                Last updated: June 8, 2021
-              </Grid.Column>
-            </Grid>
-          </Grid.Column>
-        </Grid>
-      </Container>
+    <Segment className='Footer'>
+      <Grid centered verticalAlign='middle'>
+        <Grid.Column floated='left' mobile={5} tablet={3} computer={2} largeScreen={2} widescreen={2}>
+          <Image src='/images/cyberskyline.svg' />
+        </Grid.Column>
+        <Grid.Column mobile={11} tablet={12} computer={12} largeScreen={12} widescreen={12}>
+          <List horizontal centered divided floated='right'>
+            <List.Item>
+              <a href='https://github.com/CyberSkyline/competitions/' target='_blank' rel='noreferrer'>Want to add your CTF</a>
+            </List.Item>
+            <List.Item>
+              <span>{`Cyber Skyline ©  ${moment(new Date()).utc().format('YYYY')}`}</span>
+            </List.Item>
+            <List.Item>
+              {`Last updated: ${moment(constants.lastUpdated).utc().format('MMMM D, YYYY')}`}
+            </List.Item>
+          </List>
+        </Grid.Column>
+      </Grid>
     </Segment>
   </React.StrictMode>,
   document.getElementById('root'),
