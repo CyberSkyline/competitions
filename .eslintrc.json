@@ -1,0 +1,51 @@
+{
+  "rules": {
+    "object-curly-newline" : [ "error", { "consistent" : true } ],
+    "no-console": "error",
+    "jsx-quotes": [ "error", "prefer-single" ],
+    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
+    "arrow-parens": [ "error", "always" ],
+    "react/forbid-prop-types": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "import/imports-first": "off",
+    "jsx-a11y/label-has-for": "off",
+    "react/require-default-props": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/no-typos": "off",
+    "react/jsx-curly-brace-presence": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/mouse-events-have-key-events": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-one-expression-per-line": [ "error", { "allow": "single-child" } ],
+    "operator-linebreak": [ "error", "after" ],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-fragments": [ "error", "element" ],
+    "react/jsx-curly-spacing": [ "error", { "when": "never", "children": true } ]
+  },
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "17"
+    }
+  },
+  "parser": "babel-eslint"
+}

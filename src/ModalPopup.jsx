@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import moment from 'moment';
@@ -10,11 +11,10 @@ marked.setOptions({
   gfm: true,
 });
 
-function Modalpopup(props) {
+function ModalPopup(props) {
   const [open, setOpen] = React.useState(false);
   const { header, logoURL, longDescription, contactInfo, regURL } = props;
-  const input = _.chain(longDescription).split('\n').map(_.trimStart).join('\n')
-    .value();
+  const input = _.chain(longDescription).split('\n').map(_.trimStart).join('\n').value();
   const html = marked(input);
   return (
     <Modal
@@ -34,9 +34,7 @@ function Modalpopup(props) {
       </Modal.Header>
       <Modal.Content image>
         <Image size='small' src={logoURL} />
-        <Modal.Description style={{ margin: '1em' }}>
-          <Container dangerouslySetInnerHTML={{ __html: html }} />
-        </Modal.Description>
+        <Modal.Description style={{ margin: '1em' }} dangerouslySetInnerHTML={{ __html: html }} />
       </Modal.Content>
       <Modal.Actions>
         <Grid columns={2} verticalAlign='middle'>
@@ -59,7 +57,7 @@ function Modalpopup(props) {
   );
 }
 
-Modalpopup.propTypes = {
+ModalPopup.propTypes = {
   trigger: PropTypes.instanceOf(Button),
   header: PropTypes.string,
   startDate: PropTypes.instanceOf(Date),
@@ -70,4 +68,4 @@ Modalpopup.propTypes = {
   contactInfo: PropTypes.string,
 };
 
-export default Modalpopup;
+export default ModalPopup;
