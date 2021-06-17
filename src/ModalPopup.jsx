@@ -16,6 +16,7 @@ function ModalPopup(props) {
   const { header, logoURL, longDescription, contactInfo, regURL } = props;
   const input = _.chain(longDescription).split('\n').map(_.trimStart).join('\n').value();
   const html = marked(input);
+  
   return (
     <Modal
       closeIcon

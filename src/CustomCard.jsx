@@ -4,6 +4,7 @@ import { Card, Grid, Image, Button, Divider, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import ModalPopup from './ModalPopup';
 
+
 const { string, instanceOf } = PropTypes;
 
 function CustomCard(props) {
