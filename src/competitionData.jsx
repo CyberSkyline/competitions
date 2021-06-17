@@ -262,8 +262,8 @@ export default [
   {
     header: 'SANS BootUp',
     description: 'The SANS BootUp CTF is an exciting, fun way to practice cyber security skills in a friendly environment.In this multi-disciplined Capture the Flag system with over 28 exciting content packs, you’ll experience a broad survey of engaging challenges to discover your strengths and challenge your limits. In BootUp, participants can earn prizes, play solo or as a team, and participate in interactive chat with other players.',
-    startDate: new Date('2021-09-14'),
-    endDate: new Date('2021-09-16'),
+    startDate: null,
+    endDate: null,
     longDescription: (`
       The SANS BootUp CTF is an exciting, fun way to practice cyber security skills in a friendly environment. In this multi-disciplined Capture the Flag system with over 28 exciting content packs, you’ll experience a broad survey of engaging challenges to discover your strengths and challenge your limits. In BootUp, participants can earn prizes, play solo or as a team, and participate in interactive chat with other players.
       
@@ -273,8 +273,8 @@ export default [
       Because BootUp is open for multiple hours or even around the clock for multiple days, players can drop in any time during the game, answer a few questions, and then move on, only to come back later during the game when their schedule allows. This approach gives BootUp a casual and relaxed challenge feel. Also, if you get stuck, you can take hints or move on to any other question in the game.    
     `),
     logoURL: '/images/BootUp.jpeg',
-    regURL: 'https://www.sans.org/cyber-ranges/bootup-ctf/',
-    contactInfo: 'mailto:info@sans.org',
+    regURL: 'https://codebreaker.ltsnet.net/home',
+    contactInfo: 'mailto:codebreaker@uwe.nsa.gov',
   },
   {
     header: 'ångstromCTF',
