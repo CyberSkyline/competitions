@@ -2,8 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Card, Grid, Image, Button, Divider, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import ModalPopup from './ModalPopup';
-
+import Modalpopup from './ModalPopup';
 
 const { string, instanceOf } = PropTypes;
 
@@ -26,7 +25,7 @@ function CustomCard(props) {
       </Card.Content>
       <Card.Content>
         <Grid.Row textAlign='center'>
-          <ModalPopup trigger={<Button fluid>More Information</Button>} {...props} />
+          <Modalpopup trigger={<Button fluid>More Information</Button>} {...props} />
         </Grid.Row>
       </Card.Content>
     </Card>
