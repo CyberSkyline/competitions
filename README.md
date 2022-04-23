@@ -10,8 +10,8 @@ If you would like to contribute a competition to the site, open [competitions.js
   {
     header: 'Name of the competition',
     description: 'Short description of the competition',
-    startDate: 'YYYY-MM-DD',
-    endDate: 'YYYY-MM-DD',
+    startDate: new Date('YYYY-MM-DD'),
+    endDate: new Date('YYYY-MM-DD'),
     longDescription: (`
       Longer description of the competition (This field is markdown-friendly)
     `),
