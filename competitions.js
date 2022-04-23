@@ -216,10 +216,10 @@ export default [
   {
     header: 'Space Grand Challenge 2022',
     description: 'The Space Grand Challenge is an international competition open to middle and high school students from across the globe! Teams from all over the world will compete in a gamified satellite cybercrime scenario to help solve Mission Kolluxium Z-85-0. Gamification and Esports for Space and Cybersecurity Skills Development',
-    startDate: '2022-10-07',
-    endDate: '2022-10-09',
+    startDate: new Date('2022-10-07'),
+    endDate: new Date('2022-10-09'),
     longDescription: (`
-      The California Cybersecurity Institute (CCI) is hosting its Space Grand Challenge on Oct. 7-9, 2022. The 2022 Space Grand Challenge (SGC) is a global cybersecurity competition where students compete while building valuable skills, preparing them for future careers in the cyber, tech and space industries. The competition will take place in virtual-immersive environments and will focus on digital forensics with a fictional cybercrime storyline. SGC is open to middle and high school students from all over the world, and the event will also be broadcasted live on Twitch. 
+      The California Cybersecurity Institute (CCI) is hosting its Space Grand Challenge on Oct. 7-9, 2022. The 2022 Space Grand Challenge (SGC) is a global cybersecurity competition where students compete while building valuable skills, preparing them for future careers in the cyber, tech and space industries. The competition will take place in virtual-immersive environments and will focus on digital forensics with a fictional cybercrime storyline. SGC is open to middle and high school students from all over the world, and the event will also be broadcasted live on Twitch.
     `),
     logoURL: '/images/SGC.png',
     regURL: 'https://cci.calpoly.edu/events/sgc-2022',
